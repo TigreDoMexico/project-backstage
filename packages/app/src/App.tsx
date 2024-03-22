@@ -28,6 +28,9 @@ import { searchPage } from './components/search/SearchPage';
 import { Root } from './components/Root';
 
 import {
+  githubAuthApiRef
+} from '@backstage/core-plugin-api';
+import {
   AlertDisplay,
   OAuthRequestDialog,
   SignInPage,
@@ -37,6 +40,15 @@ import { AppRouter, FlatRoutes } from '@backstage/core-app-api';
 import { CatalogGraphPage } from '@backstage/plugin-catalog-graph';
 import { RequirePermission } from '@backstage/plugin-permission-react';
 import { catalogEntityCreatePermission } from '@backstage/plugin-catalog-common/alpha';
+
+const authProviders = [
+  {
+    id: 'github-auth-provider',
+    title: 'GitHub',
+    message: 'Login via Github',
+    apiRef: githubAuthApiRef,
+  }
+]
 
 const app = createApp({
   apis,
@@ -58,7 +70,7 @@ const app = createApp({
     });
   },
   components: {
-    SignInPage: props => <SignInPage {...props} auto providers={['guest']} />,
+    SignInPage: props => <SignInPage {...props} auto providers={authProviders} />,
   },
 });
 
