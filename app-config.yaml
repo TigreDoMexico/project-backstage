@@ -49,6 +49,9 @@ auth:
       development:
         clientId: X
         clientSecret: X
+        signIn:
+          resolvers:
+            - resolver: usernameMatchingUserEntityName
 
 scaffolder:
   github:
