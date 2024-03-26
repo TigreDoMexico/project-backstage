@@ -4,5 +4,5 @@ metadata:
   name: ${{ values.name | dump }}
 spec:
   type: service
-  owner: TigreDoMexico:github
+  owner: TigreDoMexico
   lifecycle: experimental

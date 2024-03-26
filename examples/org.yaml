@@ -5,13 +5,13 @@ kind: User
 metadata:
   name: TigreDoMexico
 spec:
-  memberOf: [github]
+  memberOf: [default]
 ---
 # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
 apiVersion: backstage.io/v1alpha1
 kind: Group
 metadata:
-  name: github
+  name: default
 spec:
   type: team
   children: []
