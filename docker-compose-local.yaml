@@ -1,0 +1,14 @@
+version: '1.0'
+
+services:
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_PASSWORD: "Postgres2022!"
+    ports:
+      - "5432:5432"
+    networks:
+      - tigre-backstage-network
+
+networks:
+  tigre-backstage-network:
