@@ -41,7 +41,7 @@ proxy:
 techdocs:
   builder: 'local' # Alternatives - 'external'
   generator:
-    runIn: 'docker' # Alternatives - 'local'
+    runIn: 'local' # Alternatives - 'local'
   publisher:
     type: 'local' # Alternatives - 'googleGcs' or 'awsS3'. Read documentation for using alternatives.
 
@@ -66,27 +66,36 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location]
+    - allow: [Component, System, API, Resource, Location, Domain]
   locations:
-    # Local example data, file locations are relative to the backend process, typically `packages/backend`
-    - type: file
-      target: ../../examples/entities.yaml
-
-    # Local example template
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/domain/personalprojects-domain.yaml
+      rules:
+        - allow: [Domain]
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/system/quizz-system.yaml
+      rules:
+        - allow: [System]
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/system/birthday-manager-system.yaml
+      rules:
+        - allow: [System]
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/system/study-system.yaml
+      rules:
+        - allow: [System]
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/groups/backstage-group.yaml
+      rules:
+        - allow: [User, Group]
     - type: file
       target: ../../examples/template/template.yaml
       rules:
         - allow: [Template]
-
-    # Local example organizational data
-    - type: file
-      target: ../../examples/org.yaml
-      rules:
-        - allow: [User, Group]
-
-    ## Uncomment these lines to add more example data
-    # - type: url
-    #   target: https://github.com/backstage/backstage/blob/master/packages/catalog-model/examples/all.yaml
+    
+    # # Local example data, file locations are relative to the backend process, typically `packages/backend`
+    # - type: file
+    #   target: ../../examples/entities.yaml
 
     ## Uncomment these lines to add an example org
     # - type: url

@@ -5,8 +5,9 @@ metadata:
   title: Tigre Backstage
   description: My backstage test application.
   annotations:
-    github.com/study-refit: TigreDoMexico/study-refit
+    github.com/project-slug: TigreDoMexico/study-refit
 spec:
   type: website
-  owner: davidtigremoraes@gmail.com
   lifecycle: experimental
+  owner: user:TigreDoMexico
+  system: study-projects
