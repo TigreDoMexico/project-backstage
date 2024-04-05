@@ -26,7 +26,7 @@ backend:
 integrations:
   github:
     - host: github.com
-      token: X
+      token: ${GITHUB_TOKEN_CLASSIC}
 
 proxy:
   endpoints:
@@ -50,15 +50,15 @@ auth:
   providers:
     github:
       development:
-        clientId: X
-        clientSecret: X
+        clientId: ${GITHUB_CLIENT_ID}
+        clientSecret: ${GITHUB_CLIENT_SECRET}
         signIn:
           resolvers:
             - resolver: usernameMatchingUserEntityName
 
 scaffolder:
   github:
-    token: X
+    token: ${GITHUB_TOKEN_CLASSIC}
     visibility: public
 
 catalog:
@@ -66,7 +66,7 @@ catalog:
     entityFilename: catalog-info.yaml
     pullRequestBranchName: backstage-integration
   rules:
-    - allow: [Component, System, API, Resource, Location, Domain]
+    - allow: [Component, System, API, Resource, Location, Domain, Template]
   locations:
     - type: url
       target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/domain/personalprojects-domain.yaml
@@ -88,8 +88,8 @@ catalog:
       target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/groups/backstage-group.yaml
       rules:
         - allow: [User, Group]
-    - type: file
-      target: ../../examples/template/template.yaml
+    - type: url
+      target: https://github.com/TigreDoMexico/project-backstage-data/blob/main/templates/remote-templates.yaml
       rules:
         - allow: [Template]
     

@@ -1,8 +1,22 @@
 version: '1.0'
 
 services:
-  postgres:
+  backstage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tigre-backstage
+    ports:
+      - "3000:3000"
+      - "7007:7007"
+    depends_on:
+      - backstage-db
+    networks:
+      - tigre-backstage-network
+
+  backstage-db:
     image: postgres
+    container_name: backstage-db
     environment:
       POSTGRES_PASSWORD: "Postgres2022!"
     ports:
