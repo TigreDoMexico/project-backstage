@@ -26,3 +26,15 @@ Finally, to start the Backstage Server, run the following commands:
 yarn install
 yarn dev
 ```
+
+## How to Run all Docker
+
+Copy all content of app-config.docker.yaml and paste in app-config.yaml, then run the following command:
+
+```sh
+docker compose -f docker-compose.yaml up -d
+```
+
+## How to Deploy on K8s
+
+All steps are [here](./deploy)

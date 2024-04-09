@@ -21,10 +21,10 @@ backend:
   database:
     client: pg
     connection:
-      host: ${POSTGRES_SERVICE_HOST}
-      port: ${POSTGRES_SERVICE_PORT}
-      user: ${POSTGRES_USER}
-      password: ${POSTGRES_PASSWORD}
+      host: backstage-db
+      port: 5432
+      user: postgres
+      password: Postgres2022!
 
 integrations:
   github:

@@ -1,6 +1,18 @@
 version: '1.0'
 
 services:
+  backstage:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: tigre-backstage
+    ports:
+      - "7007:7007"
+    depends_on:
+      - backstage-db
+    networks:
+      - tigre-backstage-network
+
   backstage-db:
     image: postgres
     container_name: backstage-db
